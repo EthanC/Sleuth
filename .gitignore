@@ -108,6 +108,7 @@ venv.bak/
 
 # Credentials
 configuration.json
+logo.png
 
 # Output
 data/*.*
