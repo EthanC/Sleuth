@@ -117,9 +117,12 @@ class Sleuth:
         # Not all News Feed items will have the adspace element. If it
         # is present, include it in the Tweet body.
         try:
-            body = "{} ({})\n{}".format(item["title"], item["adspace"], item["body"])
+            adspace = item["adspace"].capitalize()
+            body = "{} ({})\n{}".format(item["title"], adspace, item["body"])
         except KeyError:
             body = "{}\n{}".format(item["title"], item["body"])
+
+        body.replace("Fortnite", "#Fortnite", 1)
 
         Sleuth.GenerateImage(self, item["image"])
 
