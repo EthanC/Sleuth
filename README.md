@@ -29,4 +29,4 @@ python newsfeed.py
 
 ## Credits
 
-- News Feed data provided by the [Fortnite API](https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game)
+- Newsfeed data provided by the [Fortnite API](https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game)
