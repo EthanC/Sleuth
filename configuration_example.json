@@ -1,4 +1,7 @@
 {
+    "ignoredTitles": [
+        "Keep Your Account Secure"
+    ],
     "twitter": {
         "enabled": true,
         "apiKey": "XXXXXXXXXX",

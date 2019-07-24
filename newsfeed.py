@@ -53,6 +53,7 @@ class Sleuth:
         configuration = json.loads(Utility.ReadFile(self, "configuration", "json"))
 
         try:
+            self.ignoredTitles = configuration["ignoredTitles"]
             self.twitterEnabled = configuration["twitter"]["enabled"]
             self.twitterAPIKey = configuration["twitter"]["apiKey"]
             self.twitterAPISecret = configuration["twitter"]["apiSecret"]
@@ -87,7 +88,9 @@ class Sleuth:
             oldTitles.append(item["title"])
 
         for item in news:
-            if item["title"] not in oldTitles:
+            if (item["title"] not in oldTitles) and (
+                item["title"] not in self.ignoredTitles
+            ):
                 changed.append(item["title"])
 
         return changed
@@ -114,7 +117,7 @@ class Sleuth:
         # Not all News Feed items will have the adspace element. If it
         # is present, include it in the Tweet body.
         try:
-            body = "{} ({})\n\n{}".format(item["title"], item["adspace"], item["body"])
+            body = "{} ({})\n{}".format(item["title"], item["adspace"], item["body"])
         except KeyError:
             body = "{}\n{}".format(item["title"], item["body"])
 

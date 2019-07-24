@@ -19,6 +19,7 @@ As seen on [@FNMasterCom](https://twitter.com/FNMasterCom)...
 Open `configuration_example.json` in your preferred text editor, fill the configurable values. Once finished, save and rename the file to `configuration.json`.
 
 - `twitter`: Set `enabled` to `false` if you wish for `news.png` to not be Tweeted
+- `ignoredTitles`: Array of Newsfeed Titles which should not be Tweeted
 
 Edit the images found in `assets/images/` to your liking, avoid changing image dimensions for optimal results.
 
