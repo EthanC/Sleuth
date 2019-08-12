@@ -2,7 +2,11 @@
 
 Sleuth is a utility which watches the Fortnite News Feed for changes then generates a stylized image and shares it on Twitter.
 
-As seen on [@FNMasterCom](https://twitter.com/FNMasterCom)...
+As seen on [@FNMasterCom](https://twitter.com/FNMasterCom/status/1158890762521731072?s=20)...
+
+<p align="center">
+    <img src="https://i.imgur.com/ZUxDH9L.jpg" width="650px" draggable="false">
+</p>
 
 ## Requirements
 
