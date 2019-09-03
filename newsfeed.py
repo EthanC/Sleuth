@@ -118,17 +118,26 @@ class Sleuth:
         # is present, include it in the Tweet body.
         try:
             adspace = item["adspace"].capitalize()
-            body = "{} ({})\n{}".format(item["title"], adspace, item["body"])
+
+            # In some cases, the adspace key will be present, however
+            # the value will be blank.
+            if len(adspace) > 0:
+                body = "{} ({})\n{}".format(item["title"], adspace, item["body"])
+            else:
+                raise KeyError
         except KeyError:
             body = "{}\n{}".format(item["title"], item["body"])
 
         body.replace("Fortnite", "#Fortnite", 1)
 
-        Sleuth.GenerateImage(self, item["image"])
+        imageURL = item["image"]
+        Sleuth.GenerateImage(self, imageURL)
 
         # Trim Tweet body to 280 characters (277 plus ellipses), as per
-        # Twitter's requirements
+        # Twitter's requirements.
         body = body[:277] + (body[277:] and "...")
+
+        Log.Info(self, f"{body}\n{imageURL}")
 
         try:
             with open("news.png", "rb") as image:
