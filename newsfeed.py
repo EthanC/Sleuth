@@ -53,6 +53,7 @@ class Sleuth:
         configuration = json.loads(Utility.ReadFile(self, "configuration", "json"))
 
         try:
+            self.hashtags = configuration["hashtags"]
             self.ignoredTitles = configuration["ignoredTitles"]
             self.twitterEnabled = configuration["twitter"]["enabled"]
             self.twitterAPIKey = configuration["twitter"]["apiKey"]
@@ -128,7 +129,11 @@ class Sleuth:
         except KeyError:
             body = "{}\n{}".format(item["title"], item["body"])
 
-        body.replace("Fortnite", "#Fortnite", 1)
+        for hashtag in self.hashtags:
+            # This allows for multi-word strings to be hashtagged
+            hashtagged = hashtag.replace(" ", "")
+
+            body = body.replace(hashtag, f"#{hashtagged}", 1)
 
         imageURL = item["image"]
         Sleuth.GenerateImage(self, imageURL)
