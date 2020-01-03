@@ -15,7 +15,7 @@ As seen on [@FNMasterCom](https://twitter.com/FNMasterCom/status/115889076252173
 -   [coloredlogs](https://pypi.org/project/coloredlogs/)
 -   [python-twitter](https://github.com/bear/python-twitter#installing)
 
-A [Fortnite-API API Key](https://fortnite-api.com/profile) is required to obtain the Item Shop data, [Twitter API credentials](https://developer.twitter.com/en/apps) are required to Tweet the image.
+A [Fortnite-API API Key](https://fortnite-api.com/profile) is required to obtain the News Feed data, [Twitter API credentials](https://developer.twitter.com/en/apps) are required to Tweet the image.
 
 ## Usage
 
