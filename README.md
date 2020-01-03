@@ -1,6 +1,6 @@
 # Sleuth
 
-Sleuth is a utility which watches the Fortnite News Feed for changes then generates a stylized image and shares it on Twitter.
+Sleuth is a utility which watches the Fortnite News Feed for changes then shares it on Twitter.
 
 As seen on [@FNMasterCom](https://twitter.com/FNMasterCom/status/1158890762521731072?s=20)...
 
@@ -10,22 +10,23 @@ As seen on [@FNMasterCom](https://twitter.com/FNMasterCom/status/115889076252173
 
 ## Requirements
 
-- [Python3.7](https://www.python.org/downloads/)
-- [Requests](http://docs.python-requests.org/en/master/user/install/)
-- [Colorama](https://pypi.org/project/colorama/)
-- [Pillow](https://pillow.readthedocs.io/en/stable/installation.html#basic-installation)
-- [python-twitter](https://github.com/bear/python-twitter#installing)
+-   [Python 3.7](https://www.python.org/downloads/)
+-   [requests](http://docs.python-requests.org/en/master/user/install/)
+-   [coloredlogs](https://pypi.org/project/coloredlogs/)
+-   [python-twitter](https://github.com/bear/python-twitter#installing)
 
-[Twitter API credentials](https://developer.twitter.com/en/apps) are required to Tweet the image.
+A [Fortnite-API API Key](https://fortnite-api.com/profile) is required to obtain the Item Shop data, [Twitter API credentials](https://developer.twitter.com/en/apps) are required to Tweet the image.
 
 ## Usage
 
 Open `configuration_example.json` in your preferred text editor, fill the configurable values. Once finished, save and rename the file to `configuration.json`.
 
-- `twitter`: Set `enabled` to `false` if you wish for `news.png` to not be Tweeted
-- `ignoredTitles`: Array of Newsfeed Titles which should not be Tweeted
+-   `language`: Set the language for the News Feed data ([Supported Languages](https://fortnite-api.com/documentation))
+-   `twitter`: Set `enabled` to `false` if you wish for the news to not be Tweeted
+-   `ignoredTitles`: Array of News Feed titles which should not be Tweeted
+-   `hashtags`: Array of strings which should be converted to hashtags
 
-Edit the images found in `assets/images/` to your liking, avoid changing image dimensions for optimal results.
+Sleuth is designed to be ran using a scheduler, such as [cron](https://en.wikipedia.org/wiki/Cron).
 
 ```
 python newsfeed.py
@@ -33,4 +34,4 @@ python newsfeed.py
 
 ## Credits
 
-- News Feed data provided by the [Fortnite API](https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game)
+-   News Feed data provided by [Fortnite-API](https://fortnite-api.com/)

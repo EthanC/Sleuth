@@ -1,16 +1,23 @@
 {
-    "hashtags": [
-        "Fortnite",
-        "Fortnite World Cup"
-    ],
-    "ignoredTitles": [
-        "Keep Your Account Secure"
-    ],
+    "battleRoyale": true,
+    "creative": false,
+    "language": "en",
+    "fortniteAPI": {
+        "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    },
     "twitter": {
         "enabled": true,
         "apiKey": "XXXXXXXXXX",
         "apiSecret": "XXXXXXXXX",
         "accessToken": "XXXXXXXXXX",
         "accessSecret": "XXXXXXXXXX"
-    }
+    },
+    "hashtags": [
+        "Fortnite",
+        "Fortnite World Cup",
+        "Fortnitemares"
+    ],
+    "ignoredTitles": [
+        "Keep Your Account Secure"
+    ]
 }
