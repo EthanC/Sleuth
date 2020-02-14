@@ -10,7 +10,7 @@ As seen on [@FNMasterCom](https://twitter.com/FNMasterCom/status/122795587205745
 
 ## Requirements
 
--   [Python 3.7](https://www.python.org/downloads/)
+-   [Python 3.8](https://www.python.org/downloads/)
 -   [httpx](https://www.python-httpx.org/#installation)
 -   [coloredlogs](https://pypi.org/project/coloredlogs/)
 -   [python-twitter](https://github.com/bear/python-twitter#installing)
