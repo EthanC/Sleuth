@@ -1,41 +1,55 @@
+import json
 import logging
+from typing import Any, Dict, Optional, Union
 
-import requests
+import httpx
 
-log = logging.getLogger(__name__)
+log: logging.Logger = logging.getLogger(__name__)
 
 
 class Utility:
     """Class containing utilitarian functions intended to reduce duplicate code."""
 
-    def GET(self, url: str, headers: dict, parameters: dict = {"language": "en"}):
+    def GET(
+        self: Any,
+        url: str,
+        headers: Dict[str, str],
+        parameters: Dict[str, str] = {"language": "en"},
+    ) -> Optional[dict]:
         """
         Return the response of a successful HTTP GET request to the specified
         URL with the optionally provided header values.
         """
 
-        res = requests.get(url, headers=headers, params=parameters)
+        res: httpx.Response = httpx.get(url, headers=headers, params=parameters)
 
         # HTTP 200 (OK)
         if res.status_code == 200:
-            return res.text
+            if res.headers["Content-Type"].lower() == "application/json; charset=utf-8":
+                return res.json()
         else:
-            log.critical(f"Failed to GET {url} (HTTP {res.status_code})")
+            log.error(f"Failed to GET {url} (HTTP {res.status_code})")
 
-    def ReadFile(self, filename: str, extension: str):
+    def ReadFile(self: Any, filename: str, extension: str) -> Optional[dict]:
         """Read and return the contents of the specified file."""
 
         try:
             with open(f"{filename}.{extension}", "r", encoding="utf-8") as file:
-                return file.read()
+                if extension == "json":
+                    return json.loads(file.read())
         except Exception as e:
             log.error(f"Failed to read {filename}.{extension}, {e}")
 
-    def WriteFile(self, filename: str, extension: str, data: str):
+    def WriteFile(
+        self: Any, filename: str, extension: str, data: Union[str, dict, list]
+    ) -> None:
         """Write the provided data to the specified file."""
 
         try:
             with open(f"{filename}.{extension}", "w", encoding="utf-8") as file:
-                file.write(data)
+                if extension == "json":
+                    file.write(json.dumps(data, indent=4))
+                else:
+                    file.write(data)
         except Exception as e:
             log.error(f"Failed to write {filename}.{extension}, {e}")

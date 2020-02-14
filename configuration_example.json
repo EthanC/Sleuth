@@ -19,5 +19,8 @@
     ],
     "ignoredTitles": [
         "Keep Your Account Secure"
+    ],
+    "ignoredBodies": [
+        "Two-Factor Authentication"
     ]
 }
