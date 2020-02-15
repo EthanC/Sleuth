@@ -118,7 +118,7 @@ class Sleuth:
                             f'Ignoring news feed item "{_title}" due to ignored body configuration'
                         )
 
-                        return
+                        continue
 
                 body = f"{motd['title']}\n{motd['body']}"
 
